@@ -138,7 +138,114 @@ void display_string(int x, int y, char *string, int font)
 /*bagian kak muhaimin*/
 
 
-/*bagian kak farhan*/
+
+
+///*bagian kak farhan*/
+void colorMenu(int id)
+{
+  if (id==6)
+ {
+  r=g=0;
+  b=1;
+ glutPostRedisplay();
+
+ }
+ if(id ==7)
+ {
+  r=0.8;
+  b=g=0;
+  glutPostRedisplay();
+ }
+ if(id==8)
+ {
+     g=1;
+  r=b=0;
+  glutPostRedisplay();
+ }
+ if (id==9)
+ {
+   r=b=g=0;
+   glutPostRedisplay();
+ }
+ if(id==10)
+ {
+  b=0;
+  r=g=1;
+        glutPostRedisplay();
+ }
+ if(id==11)
+ {
+  b=r=g=.7;
+        glutPostRedisplay();
+ }
+
+}
+
+void myreshape(int w,int h)
+{
+        glViewport(0,0,w,h);
+        glMatrixMode(GL_PROJECTION);
+        glLoadIdentity();
+        if(w<=h)
+                glOrtho(-2.0,2.0,-2.0*(GLfloat)h/(GLfloat)w,2.0*(GLfloat)h/(GLfloat)w,-10.0,10.0);
+        else
+                glOrtho(-2.0*(GLfloat)w/(GLfloat)h,2.0*(GLfloat)w/(GLfloat)h,-2.0,2.0,-10.0,10.0);
+        glMatrixMode(GL_MODELVIEW);
+        glutPostRedisplay();
+}
+
+
+//*************************** Main ***************************************************************
+
+int main(int argc, char **argv)
+{
+
+/* Initialisation and window creation */
+
+  glutInit(&argc, argv);               /* Initialize GLUT state. */
+
+  glutInitDisplayMode(GLUT_RGBA |      /* RGB and Alpha */
+                      GLUT_DOUBLE|     /* double buffer */
+                      GLUT_DEPTH);     /* Z buffer (depth) */
+
+  glutInitWindowSize(Xsize,Ysize);     /* set initial window size. */
+  glutInitWindowPosition(0,0);         /* upper left corner of the screen. */
+
+  glutCreateWindow("3D CAR ANIMATION"); /* Open a window with a title. */
+
+/* Now register the various callback functions */
+
+  glutReshapeFunc(myreshape);
+  glutDisplayFunc(DrawGLScene);        /* Function to do all our OpenGL drawing. */
+  glutReshapeFunc(ReSizeGLScene);
+  glutKeyboardFunc(NormalKey);         /*Normal key is pressed */
+  glutSpecialFunc( SpecialKeyFunc );
+  InitGL(Xsize,Ysize);
+  int submenu=glutCreateMenu(colorMenu);
+  glutAddMenuEntry("blue", 6);
+ glutAddMenuEntry("red", 7);
+ glutAddMenuEntry("green",8);
+ glutAddMenuEntry("black",9);
+ glutAddMenuEntry("yellow",10);
+ glutAddMenuEntry("grey",11);
+  glutCreateMenu(myMenu);
+ glutAddMenuEntry("car model mode", 1);
+ glutAddMenuEntry("car driving mode", 2);
+ glutAddMenuEntry("fog effect",3);
+ glutAddMenuEntry("wheel effect",4);
+ glutAddMenuEntry("toggle light",5);
+ glutAddSubMenu("car colors",submenu);
+ glutAddMenuEntry("daymode",12);
+ glutAddMenuEntry("Night mode",13);
+ glutAttachMenu(GLUT_RIGHT_BUTTON);
+
+  /* Now drop into the event loop from which we never return */
+
+  glutMainLoop();                      /* Start Event Processing Engine. */
+  return 1;
+}
+
+
 
 
 

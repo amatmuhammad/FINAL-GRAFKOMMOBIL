@@ -136,11 +136,121 @@ void display_string(int x, int y, char *string, int font)
 
 
 /*bagian kak muhaimin*/
+void myMenu(int id)
+{
+  if (id==1)
+ {
+  flag1=0;
+  wheelflag=0;
+ glutPostRedisplay();
+
+ }
+ if(id ==2)
+ {
+  flag1=1;
+  flag2=0;
+  wheelflag=0;
+  xangle += 5.0;
+  glutPostRedisplay();
+ }
+ if(id==3)
+ {
+  flag2=1;
+  wheelflag=0;
+  xangle += 5.0;
+  glutPostRedisplay();
+ }
+ if (id==4)
+ {
+   wheelflag=1;
+   glutPostRedisplay();
+ }
+ if (id==5)
+ {
+               if(day)
+                {
+
+  if(light)
+  {
+   count++;
+   glDisable(GL_LIGHTING);
+   glDisable(GL_LIGHT0);
+   light=0;
+  }
+  else
+  {
+   count--;
+   light=1;
+   glEnable(GL_LIGHTING);
+   glEnable(GL_LIGHT0);
+  }
+  glutPostRedisplay();
+                }
+               else
+                {
+
+                  if(nml==0 && flag2==2)
+                     {
+                       flag2=0;
+                       nml=1;
+                     }
+                   else
+                     {
+                         flag2=2;
+                 nml=0;
+
+                 aflag=0;
+                 day=0;
+
+          glClearColor(0.1,0.1,0.1,0);
+          GLfloat fogcolour[4]={0.0,0.0,0.0,1.0};
+
+                 glFogfv(GL_FOG_COLOR,fogcolour);              /* Define the fog colour */
+                 glFogf(GL_FOG_DENSITY,0.5);                   /* How dense */
+                 glFogi(GL_FOG_MODE,GL_EXP);                   /* exponential decay */
+                         /* end */
+                glHint(GL_FOG_HINT, GL_FASTEST);              /* compute per vertex */
+                glEnable(GL_FOG);
+
+
+         glutPostRedisplay();
+                 }
+             }
+
+ }
+
+
+       if(id==12)
+ {
+ aflag=1;
+        day=1;
+ glClearColor(1,1,1,1);
+ glDisable(GL_FOG);
+ glutPostRedisplay();
+ }
+
+ if(id==13)
+ {
+ aflag=0;
+        day=0;
+ flag2=2;
+ glClearColor(0.1,0.1,0.1,0);
+ GLfloat fogcolour[4]={0.0,0.0,0.0,1.0};
+
+  glFogfv(GL_FOG_COLOR,fogcolour);              /* Define the fog colour */
+  glFogf(GL_FOG_DENSITY,0.5);                   /* How dense */
+  glFogi(GL_FOG_MODE,GL_EXP);                   /* exponential decay */
+                         /* end */
+  glHint(GL_FOG_HINT, GL_FASTEST);              /* compute per vertex */
+  glEnable(GL_FOG);
+
+  glutPostRedisplay();
+       }
+}
 
 
 
-
-///*bagian kak farhan*/
+//*bagian kak farhan*/
 void colorMenu(int id)
 {
   if (id==6)
