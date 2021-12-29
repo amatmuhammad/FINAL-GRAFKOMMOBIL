@@ -218,6 +218,103 @@ if(!aflag){
 
 
 /*bagian hikmah*/
+glVertex3f(1.65,0.65,0.2);
+  glVertex3f(1.65,0.5,.2);     //3d separation
+  glVertex3f(1.7,0.5,0.2);
+  glVertex3f(1.7,0.65,0.2);
+
+  glVertex3f( 0.75, 0.65,0.2);
+  glVertex3f(0.75, 0.63,0.2);        //line strip
+  glVertex3f(1.7, 0.63, 0.2);
+  glVertex3f( 1.7,0.65,0.2);
+
+  glVertex3f( 0.75, 0.65,0.6);
+  glVertex3f(0.75, 0.63,0.6);        //line strip
+  glVertex3f(1.7, 0.63, 0.6);
+  glVertex3f( 1.7,0.65,0.6);
+
+  glColor3f(0.3,0.3,0.3);
+  glVertex3f( 0.77, 0.63,0.6);
+  glVertex3f(0.75, 0.5,0.6);        //quad front window
+  glVertex3f(1.2, 0.5, 0.6);
+  glVertex3f( 1.22,0.63,0.6);
+
+  glVertex3f(1.27,0.63,.6);
+  glVertex3f(1.25,0.5,0.6);        //quad back window
+  glVertex3f(1.65,0.5,0.6);
+  glVertex3f(1.67,0.63,0.6);
+
+  glColor3f(r,g,b);
+  glVertex3f(0.7,0.65,0.6);
+  glVertex3f(0.7,0.5,.6);       //first separation
+  glVertex3f(0.75,0.5,0.6);
+  glVertex3f(0.77,0.65,0.6);
+
+  glVertex3f(1.2,0.65,0.6);
+  glVertex3f(1.2,0.5,.6);       //second separation
+  glVertex3f(1.25,0.5,0.6);
+  glVertex3f(1.27,0.65,0.6);
+
+  glVertex3f(1.65,0.65,0.6);
+  glVertex3f(1.65,0.5,.6);
+  glVertex3f(1.7,0.5,0.6);
+  glVertex3f(1.7,0.65,0.6);
+  glEnd();
+
+
+ //**************************************************************
+  glBegin(GL_QUADS);
+
+  /* top of cube*/
+  glColor3f(0.3,0.3,0.3);
+  glVertex3f( 0.6, 0.5,0.6);
+  glVertex3f(0.6, 0.5,0.2);        //quad front window
+  glVertex3f(0.7, 0.65, 0.2);
+  glVertex3f( 0.7,0.65,0.6);
+
+  glVertex3f(1.7,0.65,.6);
+  glVertex3f(1.7,0.65,0.2);        //quad back window
+  glVertex3f(1.8,0.5,0.2);
+  glVertex3f(1.8,0.5,0.6);
+
+
+//*****************************road and surrounding development***********************************
+  if(flag1)
+  {
+ glPushMatrix();
+ glTranslatef(xw,0,0);
+  glColor3f(0,1,0);
+  glVertex3f(-100,0.1,-100);
+  glVertex3f(-100,0.1,0);         //a green surroundings
+  glVertex3f(100,0.1,0);
+  glVertex3f(100,0.1,-100);
+
+  glColor3f(0.7,0.7,0.7);
+  glVertex3f(-100,0.1,0);
+  glVertex3f(-100,0.1,0.45);         //a long road
+  glVertex3f(100,0.1,0.45);
+  glVertex3f(100,0.1,0);
+
+  glColor3f(1.0,0.75,0.0);
+  glVertex3f(-100,0.1,0.45);       //a median
+  glVertex3f(-100,0.1,0.55);
+  glVertex3f(100,0.1,0.55);
+  glVertex3f(100,0.1,0.45);
+
+  glColor3f(0.7,0.7,0.7);
+  glVertex3f(-100,0.1,0.55);
+  glVertex3f(-100,0.1,1);         //a long road
+  glVertex3f(100,0.1,1);
+  glVertex3f(100,0.1,0.55);
+
+  glColor3f(0,1,0);
+  glVertex3f(-100,0.1,1);
+  glVertex3f(-100,0.1,100);         //a green surroundings
+  glVertex3f(100,0.1,100);
+  glVertex3f(100,0.1,1);
+    glPopMatrix();
+  }
+  glEnd();
 
 
 /*bagian lisa */
