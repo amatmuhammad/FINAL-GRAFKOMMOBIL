@@ -1,0 +1,145 @@
+#include <windows.h> /*di push oleh rahmat */
+#include <stdio.h>
+#include <stdlib.h>
+#include <gl/glut.h>
+#include <math.h>
+#include <string.h>
+
+/* ASCII code for the escape key. */
+#define ESCAPE 27
+
+GLint window;
+GLint window2;
+GLint Xsize=1000;
+GLint Ysize=800;
+float i,theta;
+GLint nml=0,day=1;
+
+char name3[]="PROJECT:  3D CAR  ANIMATION";
+
+GLfloat xt=0.0,yt=0.0,zt=0.0,xw=0.0;   /* x,y,z translation */
+GLfloat tx=295,ty=62;
+GLfloat xs=1.0,ys=1.0,zs=1.0;
+
+GLfloat xangle=0.0,yangle=0.0,zangle=0.0,angle=0.0;   /* axis angles */
+
+GLfloat r=0,g=0,b=1;
+GLint light=1;
+int count=1,flg=1;
+int view=0;
+int flag1=0,aflag=1;            //to switch car driving mode
+int flag2=0,wheelflag=0;   //to switch fog effect
+GLUquadricObj *t;
+
+static void SpecialKeyFunc( int Key, int x, int y );
+
+/* Simple  transformation routine */
+GLvoid Transform(GLfloat Width, GLfloat Height)
+{
+  glViewport(0, 0, Width, Height);              /* Set the viewport */
+  glMatrixMode(GL_PROJECTION);                  /* Select the projection matrix */
+  glLoadIdentity();    /* Reset The Projection Matrix */
+  gluPerspective(45.0,Width/Height,0.1,100.0);  /* Calculate The Aspect Ratio Of The Window */
+  glMatrixMode(GL_MODELVIEW);                   /* Switch back to the modelview matrix */
+}
+
+
+/* A general OpenGL initialization function.  Sets all of the initial parameters. */
+GLvoid InitGL(GLfloat Width, GLfloat Height)
+{
+
+  glClearColor(1.0, 1.0, 1.0, 1.0);
+  glLineWidth(2.0);              /* Add line width,   ditto */
+  Transform( Width, Height ); /* Perform the transformation */
+  //newly added
+  t=gluNewQuadric();
+        gluQuadricDrawStyle(t, GLU_FILL);
+
+glEnable(GL_LIGHTING);
+
+glEnable(GL_LIGHT0);
+
+// Create light components
+GLfloat ambientLight[] = { 0.2f, 0.2f, 0.2f, 1.0f };
+GLfloat diffuseLight[] = { 0.8f, 0.8f, 0.8, 1.0f };
+GLfloat specularLight[] = { 0.5f, 0.5f, 0.5f, 1.0f };
+GLfloat position[] = { 1.5f, 1.0f, 4.0f, 1.0f };
+
+// Assign created components to GL_LIGHT0
+glLightfv(GL_LIGHT0, GL_AMBIENT, ambientLight);
+glLightfv(GL_LIGHT0, GL_DIFFUSE, diffuseLight);
+glLightfv(GL_LIGHT0, GL_SPECULAR, specularLight);
+glLightfv(GL_LIGHT0, GL_POSITION, position);
+
+}
+
+/* The function called when our window is resized  */
+GLvoid ReSizeGLScene(GLint Width, GLint Height)
+{
+  if (Height==0)     Height=1;                   /* Sanity checks */
+  if (Width==0)      Width=1;
+  Transform( Width, Height );                   /* Perform the transformation */
+}
+
+void init()
+{
+    glClearColor(0,0,0,0);
+ glPointSize(5.0);
+ glMatrixMode(GL_PROJECTION);
+ glLoadIdentity();
+ glOrtho(0.0,900.0,0.0,600.0,50.0,-50.0);
+ glutPostRedisplay();   // request redisplay
+}
+
+
+/* The main drawing function
+
+   In here we put all the OpenGL and calls to routines which manipulate
+   the OpenGL state and environment.
+
+   This is the function which will be called when a "redisplay" is requested.
+*/
+
+void display_string(int x, int y, char *string, int font)
+{
+    int len,i;
+ glColor3f(0.8,0.52,1.0);
+ glRasterPos2f(x, y);
+    len = (int) strlen(string);
+    for (i = 0; i < len; i++) {
+    if(font==1)
+ glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24,string[i]);
+ if(font==2)
+    glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18,string[i]);
+ if(font==3)
+         glutBitmapCharacter(GLUT_BITMAP_HELVETICA_12,string[i]);
+ if(font==4)
+    glutBitmapCharacter(GLUT_BITMAP_HELVETICA_10,string[i]);
+ }
+
+}
+
+/*bagian ebi*/
+
+
+
+/*bagian eto*/
+
+
+/*bagian hikmah*/
+
+
+/*bagian lisa */
+
+
+/*bagian sarman*/
+
+
+/*bagian kak muhaimin*/
+
+
+/*bagian kak farhan*/
+
+
+
+
