@@ -215,6 +215,119 @@ if(!aflag){
 
 
 /*bagian eto*/
+glBegin(GL_QUADS);                /* OBJECT MODULE*/
+
+  /* top of cube*/
+  //************************FRONT BODY****************************************
+  glColor3f(r,g,b);
+  glVertex3f( 0.2, 0.4,0.6);
+  glVertex3f(0.6, 0.5,0.6);
+  glVertex3f(0.6, 0.5,0.2);
+  glVertex3f( 0.2,0.4,0.2);
+
+  /* bottom of cube*/
+  glVertex3f( 0.2,0.2,0.6);
+  glVertex3f(0.6,0.2,0.6);
+  glVertex3f(0.6,0.2,0.2);
+  glVertex3f( 0.2,0.2,0.2);
+
+  /* front of cube*/
+  glVertex3f( 0.2,0.2,0.6);
+  glVertex3f(0.2, 0.4,0.6);
+  glVertex3f(0.2,0.4,0.2);
+  glVertex3f( 0.2,0.2,0.2);
+
+  /* back of cube.*/
+  glVertex3f(0.6,0.2,0.6);
+  glVertex3f(0.6,0.5,0.6);
+  glVertex3f(0.6,0.5,0.2);
+  glVertex3f( 0.6,0.2,0.2);
+
+  /* left of cube*/
+  glVertex3f(0.2,0.2,0.6);
+  glVertex3f(0.6,0.2,0.6);
+  glVertex3f(0.6,0.5,0.6);
+  glVertex3f(0.2,0.4,0.6);
+
+  /* Right of cube */
+  glVertex3f(0.2,0.2,0.2);
+  glVertex3f( 0.6,0.2,0.2);
+  glVertex3f( 0.6,0.5,0.2);
+  glVertex3f( 0.2,0.4,0.2);
+//****************************************************************************
+  glVertex3f(0.7,0.65,0.6);
+  glVertex3f(0.7,0.65,0.2);
+  glVertex3f(1.7,0.65,0.2);        //top cover
+  glVertex3f(1.7,0.65,0.6);
+//***************************back guard******************************
+  glColor3f(r,g,b);            /* Set The Color To Blue*/
+  glVertex3f( 1.8, 0.5,0.6);
+  glVertex3f(1.8, 0.5,0.2);
+  glVertex3f(2.1, 0.4, 0.2);
+  glVertex3f(2.1,0.4,0.6);
+
+  /* bottom of cube*/
+  glVertex3f( 2.1,0.2,0.6);
+  glVertex3f(2.1,0.2,0.2);
+  glVertex3f(1.8,0.2,0.6);
+  glVertex3f( 1.8,0.2,0.6);
+
+  /* back of cube.*/
+  glVertex3f(2.1,0.4,0.6);
+  glVertex3f(2.1,0.4,0.2);
+  glVertex3f(2.1,0.2,0.2);
+  glVertex3f(2.1,0.2,0.6);
+
+  /* left of cube*/
+  glVertex3f(1.8,0.2,0.2);
+  glVertex3f(1.8,0.5,0.2);
+  glVertex3f(2.1,0.4,0.2);
+  glVertex3f(2.1,0.2,0.2);
+
+  /* Right of cube */
+  glVertex3f(1.8,0.2,0.6);
+  glVertex3f(1.8,0.5,0.6);
+  glVertex3f(2.1,0.4,0.6);
+  glVertex3f(2.1,0.2,0.6);
+//******************MIDDLE BODY************************************
+  glVertex3f( 0.6, 0.5,0.6);
+  glVertex3f(0.6, 0.2,0.6);
+  glVertex3f(1.8, 0.2, 0.6);
+  glVertex3f(1.8,0.5,0.6);
+
+  /* bottom of cube*/
+  glVertex3f( 0.6,0.2,0.6);
+  glVertex3f(0.6,0.2,0.2);
+  glVertex3f(1.8,0.2,0.2);
+  glVertex3f( 1.8,0.2,0.6);
+
+  /* back of cube.*/
+  glVertex3f(0.6,0.5,0.2);
+  glVertex3f(0.6,0.2,0.2);
+  glVertex3f(1.8,0.2,0.2);
+  glVertex3f(1.8,0.5,0.2);
+//*********************ENTER WINDOW**********************************
+  glColor3f(0.3,0.3,0.3);
+  glVertex3f( 0.77, 0.63,0.2);
+  glVertex3f(0.75, 0.5,0.2);        //quad front window
+  glVertex3f(1.2, 0.5, 0.2);
+  glVertex3f( 1.22,0.63,0.2);
+
+  glVertex3f(1.27,0.63,.2);
+  glVertex3f(1.25,0.5,0.2);        //quad back window
+  glVertex3f(1.65,0.5,0.2);
+  glVertex3f(1.67,0.63,0.2);
+
+  glColor3f(r,g,b);
+  glVertex3f(0.7,0.65,0.2);
+  glVertex3f(0.7,0.5,.2);       //first separation
+  glVertex3f(0.75,0.5,0.2);
+  glVertex3f(0.77,0.65,0.2);
+
+  glVertex3f(1.2,0.65,0.2);
+  glVertex3f(1.2,0.5,.2);       //second separation
+  glVertex3f(1.25,0.5,0.2);
+  glVertex3f(1.27,0.65,0.2);
 
 
 /*bagian hikmah*/
