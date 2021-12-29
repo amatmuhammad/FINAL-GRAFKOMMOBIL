@@ -120,6 +120,97 @@ void display_string(int x, int y, char *string, int font)
 }
 
 /*bagian ebi*/
+void display1(void)
+{
+
+ glClearColor(1.0,1.0,0.1,1.0);
+ display_string(180,540,"NAME OF THE ENGINEERING COLLEGE",1); //correct cordinate according to name
+ display_string(215,500,name3,1);
+ display_string(390,470,"HELP",2);
+ display_string(10,450,"MOUSE",2);
+ display_string(10,410,"PRESS RIGHT BUTTON FOR MENU",3);
+ display_string(10,370,"KEYBOARD",2);
+ display_string(10,340,"X-Y-Z KEYS FOR CORRESPONDING ROTATION",3);
+ display_string(10,310,"A-S-Q CAR CUSTOM SIZE SELECTION",3);
+ display_string(10,280,"U-F FOR CAMERA VIEW SETTINGS",3);
+ display_string(10,250,"USE LEFT ARROW(<-) AND RIGHT ARROW(->) TO MOVE CAR",3);
+ display_string(10,220,"ESCAPE TO EXIT",3);
+ display_string(250,150,"PRESS SPACE BAR TO ENTER",2);
+ glutPostRedisplay();
+ glutSwapBuffers();
+
+}
+
+GLvoid DrawGLScene()
+{
+
+
+  glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); /* Clear The Screen And The Depth Buffer */
+if(view==0)
+{
+init();
+display1();
+}
+else
+{
+  if(count==1)
+ InitGL(Xsize,Ysize);
+  if(aflag==1)/* Initialize our window. */
+  glClearColor(1,1,1,1);
+  else
+   glClearColor(0.1,0.1,0.1,0);
+  glPushMatrix();
+  glLoadIdentity();
+  glTranslatef(-1.0,0.0,-3.5);
+  glRotatef(xangle,1.0,0.0,0.0);
+  glRotatef(yangle,0.0,1.0,0.0);
+  glRotatef(zangle,0.0,0.0,1.0);
+  glTranslatef(xt,yt,zt);
+  glScalef(xs,ys,zs);
+  glEnable(GL_COLOR_MATERIAL);
+  glColorMaterial(GL_FRONT, GL_AMBIENT_AND_DIFFUSE);
+
+  if(flag2==1)
+  {
+  GLfloat fogcolour[4]={1.0,1.0,1.0,1.0};
+
+  glFogfv(GL_FOG_COLOR,fogcolour);              /* Define the fog colour */
+  glFogf(GL_FOG_DENSITY,0.1);                   /* How dense */
+  glFogi(GL_FOG_MODE,GL_EXP);                   /* exponential decay */
+  glFogf(GL_FOG_START,3.0);                   /* Where wwe start fogging */
+  glFogf(GL_FOG_END,100.0);                       /* end */
+  glHint(GL_FOG_HINT, GL_FASTEST);              /* compute per vertex */
+  glEnable(GL_FOG);/* ENABLE */
+  }
+  if(flag2==0)
+  {
+   glDisable(GL_FOG);
+  }
+
+if(!aflag){
+  glBegin(GL_POINTS);
+  glColor3f(1,1,1);
+  glPointSize(200.0);
+  int ccount=0;
+  float x=10,y=10;
+  while(ccount<20)
+  {
+   glVertex2f(x,y);
+   x+=10;
+   y+=10;
+   if(y>Ysize) y-=10;
+   if(x>Xsize) x-=10;
+   ccount++;
+  }
+  glEnd();}
+
+  glColor3f(1.0,.75,0.0);
+  glPointSize(30.0);
+  glBegin(GL_POINTS);
+  glVertex3f(0.2,0.3,0.3);
+  glVertex3f(0.2,0.3,0.5);
+  glEnd();
+  glPointSize(200.0);
 
 
 
