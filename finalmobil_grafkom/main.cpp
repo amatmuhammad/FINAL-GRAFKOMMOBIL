@@ -1,4 +1,5 @@
-#include <windows.h> /*di push oleh rahmat */
+ /*di push oleh rahmat */
+#include <windows.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <gl/glut.h>
@@ -119,7 +120,7 @@ void display_string(int x, int y, char *string, int font)
 
 }
 
-/*bagian ebi*/
+/*waode ika febryanti*/
 void display1(void)
 {
 
@@ -214,7 +215,7 @@ if(!aflag){
 
 
 
-/*bagian eto*/
+/*bagian Hardianto*/
 glBegin(GL_QUADS);                /* OBJECT MODULE*/
 
   /* top of cube*/
@@ -330,7 +331,7 @@ glBegin(GL_QUADS);                /* OBJECT MODULE*/
   glVertex3f(1.27,0.65,0.2);
 
 
-/*bagian hikmah*/
+/*bagian Dwi hikmah*/
 glVertex3f(1.65,0.65,0.2);
   glVertex3f(1.65,0.5,.2);     //3d separation
   glVertex3f(1.7,0.5,0.2);
@@ -430,7 +431,7 @@ glVertex3f(1.65,0.65,0.2);
   glEnd();
 
 
-/*bagian lisa */
+/*bagian sitti nurhalisa */
   if(wheelflag)
   {
    glPushMatrix();
@@ -542,7 +543,7 @@ glEnd();
 }
 
 
-/*bagian sarman*/
+/*bagian sarman chisara*/
 
 /*  The function called whenever a "normal" key is pressed. */
 void NormalKey(GLubyte key, GLint x, GLint y)
@@ -664,7 +665,7 @@ static void SpecialKeyFunc( int Key, int x, int y )
 }
 
 
-/*bagian kak muhaimin*/
+/*bagian almuhaimin*/
 void myMenu(int id)
 {
   if (id==1)
@@ -779,7 +780,7 @@ void myMenu(int id)
 
 
 
-//*bagian kak farhan*/
+//*bagian muhammad farhan*/
 void colorMenu(int id)
 {
   if (id==6)
