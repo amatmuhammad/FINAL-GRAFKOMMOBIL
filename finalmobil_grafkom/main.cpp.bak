@@ -225,6 +225,125 @@ if(!aflag){
 
 /*bagian sarman*/
 
+/*  The function called whenever a "normal" key is pressed. */
+void NormalKey(GLubyte key, GLint x, GLint y)
+{
+    switch ( key )    {
+     case ESCAPE : printf("escape pressed. exit.\n");
+                glutDestroyWindow(window); /* Kill our window */
+                exit(0);
+                                   break;
+
+      case ' ':view=1;
+                   DrawGLScene();
+                   break;
+
+      case 'x': xangle += 5.0;
+                      glutPostRedisplay();
+                      break;
+
+       case 'X':xangle -= 5.0;
+                       glutPostRedisplay();
+                       break;
+
+      case 'y':
+        yangle += 5.0;
+        glutPostRedisplay();
+        break;
+
+     case 'Y':
+        yangle -= 5.0;
+        glutPostRedisplay();
+        break;
+
+     case 'z':
+        zangle += 5.0;
+        glutPostRedisplay();
+        break;
+
+     case 'Z':
+        zangle -= 5.0;
+        glutPostRedisplay();
+        break;
+
+      case 'u':                          /* Move up */
+        yt += 0.2;
+        glutPostRedisplay();
+        break;
+
+      case 'U':
+        yt -= 0.2;                      /* Move down */
+        glutPostRedisplay();
+        break;
+
+      case 'f':                          /* Move forward */
+        zt += 0.2;
+        glutPostRedisplay();
+        break;
+
+      case 'F':
+        zt -= 0.2;                      /* Move away */
+        glutPostRedisplay();
+        break;
+
+   case 's':zs+=.2;
+    glutPostRedisplay();
+    break;
+
+   case 'S':zs-=0.2;
+    glutPostRedisplay();
+    break;
+
+   case 'a':ys+=.2;
+    glutPostRedisplay();
+    break;
+
+   case 'A':ys-=0.2;
+    glutPostRedisplay();
+    break;
+
+   case 'q':xs+=.2;
+    glutPostRedisplay();
+    break;
+
+   case 'Q':xs-=0.2;
+    glutPostRedisplay();
+    break;
+
+
+     default:
+ break;
+    }
+
+}
+
+static void SpecialKeyFunc( int Key, int x, int y )
+{
+ switch ( Key ) {
+ case GLUT_KEY_RIGHT:
+  if(!wheelflag)
+  xt += 0.2;
+  if(wheelflag)
+  {
+  angle+=5;
+  xw+=0.2;
+  }
+     glutPostRedisplay();
+  break;
+
+                    case GLUT_KEY_LEFT:
+  if(!wheelflag)
+  xt -= 0.2;
+  if(wheelflag)
+  {
+  angle+=5;
+  xw-=0.2;
+  }
+        glutPostRedisplay();
+  break;
+ }
+}
+
 
 /*bagian kak muhaimin*/
 
